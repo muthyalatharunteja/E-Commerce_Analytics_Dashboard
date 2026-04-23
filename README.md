@@ -266,23 +266,31 @@ Or recreate manually using the KPI tables.
 ```
 ecommerce-analytics/
 │
-├── data/
-│   └── raw_csv_files/           # Olist CSVs from Kaggle
-│
+├── data/                     
+│   └── raw_csv_files/       # Raw dataset from Kaggle (Olist CSV files)
+│   │   ├── customers.csv
+│   │   ├── products.csv
+│   │   ├── order.csv
+│   │   ├── order_items.csv
+│   │   └── payments.csv
 ├── sql/
-│   ├── kpi_revenue_summary.sql
-│   ├── kpi_delivery_performance.sql
-│   ├── kpi_rfm.sql
-│   ├── kpi_cohort_analysis.sql
-│   └── kpi_time_analysis.sql
+│   ├── ecommerce_staging/              # Data cleaning & transformation layer
+│   │   ├── stg_orders.sql
+│   │   ├── stg_order_items.sql
+│   │   ├── stg_products.sql
+│   │   ├── stg_customers.sql
+│   │   └── stg_payments.sql
+│   │
+│   ├── ecommerce_analytics/                # Analytical / KPI layer
+│   │   ├── kpi_revenue_summary.sql
+│   │   ├── kpi_delivery_performance.sql
+│   │   ├── kpi_rfm.sql
+│   │   ├── kpi_cohort_analysis.sql
+│   │   └── kpi_time_analysis.sql
+│   │   └──etc..
 │
 ├── dashboards/
-│   ├── tableau_workbook.twbx
-│   └── screenshots/
-│       ├── 01_overview.png
-│       ├── 02_delivery.png
-│       ├── 03_advanced.png
-│       └── 04_time_analysis.png
+│   └── tableau_workbook.twbx  # Final Tableau dashboards
 │
 └── README.md
 ```
