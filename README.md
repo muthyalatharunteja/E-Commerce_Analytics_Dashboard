@@ -121,7 +121,7 @@ Key performance metrics and revenue trend across 2016–2018, with customer segm
 
 > **Insight:** Revenue grew strongly through 2017 into early 2018. Low-value customers (94.4K) dominate volume, but high-value customers (1.1K) punch above their weight in total spend.
 
-![Business Overview Dashboard](dashboards/screenshots/01_overview.png)
+![Business Overview Dashboard](overview.png)
 
 ---
 
@@ -147,7 +147,7 @@ Delivery time distribution, on-time vs. late breakdown, and outlier detection.
 
 > **Insight:** The delivery system is efficient overall, but a long tail of extreme outliers (60+ days) indicates operational anomalies requiring investigation.
 
-![Delivery Performance Dashboard](dashboards/screenshots/02_delivery.png)
+![Delivery Performance Dashboard](delivery.png)
 
 ---
 
@@ -169,7 +169,7 @@ Cohort retention analysis and RFM customer segmentation.
 
 > **Insight:** Over 85% of customers are low-value. Medium-value customers (20.5K) represent the highest growth opportunity — targeted upsell campaigns could meaningfully shift revenue.
 
-![Advanced Analytics Dashboard](dashboards/screenshots/03_advanced.png)
+![Advanced Analytics Dashboard](advanced.png)
 
 ---
 
@@ -191,7 +191,7 @@ Hourly trends, day-of-week patterns, and a day–hour heatmap to identify peak a
 
 > **Insight:** Customer activity is strongly tied to working hours and the start of the week. Marketing campaigns and promotions should be concentrated in the 10 AM–9 PM window, with emphasis on Monday and Tuesday.
 
-![Time Analysis Dashboard](dashboards/screenshots/04_time_analysis.png)
+![Time Analysis Dashboard](timeanalysis.png)
 
 ---
 
@@ -325,6 +325,6 @@ ecommerce-analytics/
 
 **Your Name**
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/yourprofile)
-[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/yourusername)
-[![Portfolio](https://img.shields.io/badge/Portfolio-FF5722?style=for-the-badge&logo=firefox&logoColor=white)](https://yourportfolio.com)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/muthyalatharunteja)
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/muthyalatharunteja?tab=repositories)
+
