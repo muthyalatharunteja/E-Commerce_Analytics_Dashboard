@@ -15,6 +15,8 @@ A complete analytics pipeline that transforms raw e-commerce data into actionabl
 
 The project demonstrates real-world data engineering skills: from ingesting raw CSV data into BigQuery, through advanced SQL modeling with window functions, to polished interactive Tableau dashboards.
 
+Built using a 3-layer data architecture (Raw → Staging → Analytics) in Google BigQuery to ensure scalable and reproducible data processing.
+
 ---
 
 ## 🎯 Business Problem
@@ -35,11 +37,11 @@ Despite strong revenue, the business lacked visibility into key operational area
 ```
 Kaggle CSV (Olist Dataset)
         ↓
-Google Cloud — BigQuery (Staging Tables)
+Google Cloud — BigQuery (Raw Tables)
         ↓
-SQL Modeling (Fact + Dimension + KPI Tables)
+Staging Layer (Data Cleaning & Transformation)
         ↓
-Advanced Analytics (Window Functions)
+Analytics Layer (KPI Tables)
         ↓
 Tableau Dashboards (4 Views)
         ↓
@@ -145,7 +147,7 @@ Delivery time distribution, on-time vs. late breakdown, and outlier detection.
 | 3–5 Days Late | 0.59K |
 | 5+ Days Late | 1.69K |
 
-> **Insight:** The delivery system is efficient overall, but a long tail of extreme outliers (60+ days) indicates operational anomalies requiring investigation.
+> **Insight:** > Insight: The delivery system is efficient overall, but a small number of extreme delays create a long-tail distribution, significantly impacting average delivery time.
 
 ![Delivery Performance Dashboard](delivery.png)
 
@@ -227,14 +229,14 @@ unzip brazilian-ecommerce.zip -d data/raw_csv_files/
 
 ### 2. Upload to BigQuery
 ```bash
-# Create the dataset
+# Create datasets
+bq mk ecommerce_raw
+bq mk ecommerce_staging
 bq mk ecommerce_analytics
-
-# Upload staging tables
-bq load --autodetect ecommerce_analytics.stg_orders       data/raw_csv_files/olist_orders_dataset.csv
-bq load --autodetect ecommerce_analytics.stg_customers    data/raw_csv_files/olist_customers_dataset.csv
-bq load --autodetect ecommerce_analytics.stg_order_items  data/raw_csv_files/olist_order_items_dataset.csv
-bq load --autodetect ecommerce_analytics.stg_payments     data/raw_csv_files/olist_order_payments_dataset.csv
+```
+#### Upload staging tables
+```
+bq load all raw datasets for staging table
 ```
 
 ### 3. Run SQL Scripts (in order)
@@ -245,17 +247,19 @@ bq load --autodetect ecommerce_analytics.stg_payments     data/raw_csv_files/oli
 3. kpi_rfm.sql
 4. kpi_cohort_analysis.sql
 5. kpi_time_analysis.sql
+6. etc..
 ```
 
 ### 4. Connect Tableau
-1. Open Tableau Desktop → **Connect** → **Google BigQuery**
-2. Authenticate with your Google Cloud credentials
+1. Open Tableau Desktop → **Connect** → **Google BigQuery** 
+2. Authenticate with your Google Cloud credentials 
 3. Select dataset: `ecommerce_analytics`
+(or) download each dataset from **Google BigQuery(csv data files)** and upload dataset into tableau
 4. Load the five KPI tables as data sources
 
 ### 5. Open Dashboards
 ```
-dashboards/tableau_workbook.twbx
+Olist_Ecommerce.twb
 ```
 Or recreate manually using the KPI tables.
 
@@ -287,7 +291,6 @@ ecommerce-analytics/
 │   │   ├── kpi_rfm.sql
 │   │   ├── kpi_cohort_analysis.sql
 │   │   └── kpi_time_analysis.sql
-│   │   └──etc..
 │
 ├── dashboards/
 │   └── tableau_workbook.twbx  # Final Tableau dashboards
