@@ -159,7 +159,7 @@ Cohort retention analysis and RFM customer segmentation.
 
 **Cohort Analysis:**
 - Retention drops sharply after the first purchase across all cohorts
-- Most customers never return, indicating a significant retention challenge
+- ~80–90% of customers do not return after their first purchase, indicating a retention-driven revenue gap.
 
 **RFM Segmentation:**
 
@@ -227,36 +227,68 @@ kaggle datasets download -d olistbr/brazilian-ecommerce
 unzip brazilian-ecommerce.zip -d data/raw_csv_files/
 ```
 
-### 2. Upload to BigQuery
-```bash
-# Create datasets
-bq mk ecommerce_raw
-bq mk ecommerce_staging
-bq mk ecommerce_analytics
-```
-#### Upload staging tables
-```
-bq load all raw datasets for staging table
-```
 
-### 3. Run SQL Scripts (in order)
-```bash
-# From the /sql directory, execute in sequence:
-1. kpi_revenue_summary.sql
-2. kpi_delivery_performance.sql
-3. kpi_rfm.sql
-4. kpi_cohort_analysis.sql
-5. kpi_time_analysis.sql
-6. etc..
-```
+### 2. Upload Data to BigQuery (Raw Layer)
 
+Raw CSV files are uploaded into Google BigQuery using the web UI.
+
+***Steps:***
+
+**Create datasets:**
+```bash
+ecommerce_raw
+ecommerce_staging
+ecommerce_analytics
+```
+Upload CSV files into ecommerce_raw:
+```bash
+olist_orders_dataset.csv
+olist_customers_dataset.csv
+olist_order_items_dataset.csv
+olist_order_payments_dataset.csv
+olist_products_dataset.csv
+```
+Enable schema auto-detection during upload.
+
+
+### 3. Run SQL Scripts
+**🔹 Step 1: Staging Layer (Data Cleaning)**
+
+Run SQL scripts from:
+```bash
+/sql/ecommerce_staging/
+```
+Files:
+```bash
+stg_orders.sql
+stg_order_items.sql
+stg_products.sql
+stg_customers.sql
+stg_payments.sql
+```
+**🔹 Step 2: Analytics Layer (KPI Tables)**
+
+Run SQL scripts from:
+```bash
+/sql/ecommerce_analytics/
+```
+Files:
+```bash
+kpi_revenue_summary.sql
+kpi_delivery_performance.sql
+kpi_rfm.sql
+kpi_cohort_analysis.sql
+kpi_time_analysis.sql
+```
 ### 4. Connect Tableau
-1. Open Tableau Desktop → **Connect** → **Google BigQuery** 
-2. Authenticate with your Google Cloud credentials 
-3. Select dataset: `ecommerce_analytics`
-(or) download each dataset from **Google BigQuery(csv data files)** and upload dataset into tableau
-4. Load the five KPI tables as data sources
-
+```bash
+1. Open Tableau Deskto
+2. Click Connect → To a Server → Google BigQuery
+3. Sign in using your Google Cloud account
+4. Navigate to your project and select dataset: ecommerce_analytics
+5. Select and load the KPI tables as data sources
+6. Click Load (or drag tables to the canvas) to start building visualizations
+```
 ### 5. Open Dashboards
 ```
 Olist_Ecommerce.twb
@@ -334,7 +366,7 @@ ecommerce-analytics/
 
 ## 👤 Author
 
-**Your Name**
+**Muthyala Tharun Teja**
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/muthyalatharunteja)
 [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/muthyalatharunteja?tab=repositories)
