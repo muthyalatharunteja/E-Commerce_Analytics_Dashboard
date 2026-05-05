@@ -11,11 +11,11 @@
 
 ## 📌 Overview
 
-A complete analytics pipeline that transforms raw e-commerce data into actionable business insights — covering **customer behavior**, **revenue performance**, **delivery efficiency**, and **time-based purchasing patterns**.
+Designed an End to End analytics pipeline that transforms raw e-commerce data into actionable business insights across **customer behavior**, **revenue performance**, **delivery efficiency**, and **time-based purchasing patterns**.
 
-The project demonstrates real-world data engineering skills: from ingesting raw CSV data into BigQuery, through advanced SQL modeling with window functions, to polished interactive Tableau dashboards.
+Built on a scalable 3-layer architecture **(Raw → Staging → Analytics)** in BigQuery, with advanced SQL modeling **(window functions, cohort analysis, RFM segmentation)** and interactive Tableau dashboards for business reporting.
 
-Built using a 3-layer data architecture (Raw → Staging → Analytics) in Google BigQuery to ensure scalable and reproducible data processing.
+**Data preprocessing workflows were automated** using **Alteryx**, while **exploratory analysis** was supported by **AI-assisted tools (e.g., Julius AI)**, with all **outputs validated through SQL-based logic to ensure accuracy and reproducibility**.
 
 ---
 
@@ -41,7 +41,11 @@ Google Cloud — BigQuery (Raw Tables)
         ↓
 Staging Layer (Data Cleaning & Transformation)
         ↓
-Analytics Layer (KPI Tables)
+Alteryx (Preprocessing & Workflow Automation)
+        ↓
+Analytics(KPI Tables)
+        ↓
+Julius (EDA & validation support)
         ↓
 Tableau Dashboards (4 Views)
         ↓
@@ -338,11 +342,19 @@ ecommerce-analytics/
 |---|---|
 | **Google BigQuery** | Cloud-scale data warehouse and SQL execution |
 | **SQL (Advanced)** | Window functions, aggregations, data modeling |
+| **Alteryx** | Data Workflow & Automation |
+| **Julius AI & Claude AI** | AI-Assisted Analysis & Support |
 | **Tableau Desktop** | Interactive dashboard development |
 | **Kaggle / Olist** | Raw e-commerce dataset |
 
 ---
 
+## 🤖 AI-Assisted Analysis & Workflow Automation
+- Built automated preprocessing workflows using **Alteryx (data integration, cleaning, feature engineering)**
+- Performed exploratory data analysis using SQL/Python, supported by **AI-assisted tools (e.g., Julius AI)** for faster validation and pattern discovery
+- All insights and KPIs were implemented and verified using SQL to ensure accuracy and reproducibility
+
+---
 ## ⚠️ Challenges & Solutions
 
 | Challenge | Approach |
@@ -358,6 +370,8 @@ ecommerce-analytics/
 
 ✅ Built a fully end-to-end data pipeline — from raw CSV to interactive dashboards  
 ✅ Applied advanced SQL window functions (`RANK`, `SUM OVER`, `DATE_DIFF`) in BigQuery at scale  
+✅ Automated preprocessing workflows using Alteryx to improve pipeline efficiency
+✅ Accelerated exploratory analysis using AI-assisted tools (Julius), with SQL-based validation
 ✅ Delivered **4 interactive Tableau dashboards** covering all major business dimensions  
 ✅ Uncovered a critical retention problem: 80–90% single-purchase customers  
 ✅ Translated data patterns into 5 concrete, prioritised business recommendations  
